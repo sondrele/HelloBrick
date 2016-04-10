@@ -1,12 +1,11 @@
 package no.itera.lego.message;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import no.itera.lego.color.Color;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import no.itera.lego.color.Color;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Status implements Message {
 
@@ -33,6 +32,23 @@ public class Status implements Message {
         this.isActive = isActive;
         this.target = target;
         this.colors = colors;
+    }
+
+    private Status(boolean isActive, Color target, final Color currentColor) {
+        this.isActive = isActive;
+        this.target = target;
+        this.colors = new ArrayList<Color>() {
+            {
+                add(currentColor);
+                add(Color.BLUE);
+                add(Color.WHITE);
+                add(Color.YELLOW);
+            }
+        };
+    }
+
+    public static Status createTestingStatus(boolean isActive, Color target, final Color currentColor){
+        return new Status(isActive, target, currentColor);
     }
 
     public static Status fromJson(JSONObject object) {
