@@ -34,10 +34,8 @@ public class Status implements Message {
         this.colors = colors;
     }
 
-    private Status(boolean isActive, Color target, final Color currentColor) {
-        this.isActive = isActive;
-        this.target = target;
-        this.colors = new ArrayList<Color>() {
+    public static Status createTestingStatus(boolean isActive, Color target, final Color currentColor){
+        List<Color> colors = new ArrayList<Color>() {
             {
                 add(currentColor);
                 add(Color.BLUE);
@@ -45,10 +43,7 @@ public class Status implements Message {
                 add(Color.YELLOW);
             }
         };
-    }
-
-    public static Status createTestingStatus(boolean isActive, Color target, final Color currentColor){
-        return new Status(isActive, target, currentColor);
+        return new Status(isActive, target, colors);
     }
 
     public static Status fromJson(JSONObject object) {
