@@ -9,7 +9,7 @@ For game rules - see [RULES.md][rules].
 
 ## Do's
 * Test color detection early! Your robots' color sensor might need to have some custom calibration tweaks
-(all robots have a calibration-file stored in /home/lejos/programs/ColorCalibration.properties).
+(all robots have a calibration-file stored in `/home/lejos/programs/ColorCalibration.properties`).
 Edit this file to adjust your color calibration. See the chapter about Color Calibration.
 * Use multi-threading and clever state handling to make a better performing robot.
 * Fine-tune your robots' navigation to create a near optimum navigation algorithm.
