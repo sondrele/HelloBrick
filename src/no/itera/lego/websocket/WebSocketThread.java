@@ -59,7 +59,7 @@ public class WebSocketThread implements Runnable {
             if (robotState.lastStatus.isActive) {
                 statusHistory.addNewStatus(robotState.lastStatus);
             } else {
-                robotState.robotController.stop();
+//                robotState.robotController.stop();
             }
         }
     }
