@@ -30,11 +30,11 @@ public class Robot implements WebSocketListener {
      * can also implement a combination of the two.
      */
     public void loop() {
-        System.out.println(String.format("backward=%s, forward=%s, left=%s, right=%s",
-                robot.isGoingBackward(),
-                robot.isGoingForward(),
-                robot.isGoingLeft(),
-                robot.isGoingRight()));
+//        System.out.println(String.format("backward=%s, forward=%s, left=%s, right=%s",
+//                robot.isGoingBackward(),
+//                robot.isGoingForward(),
+//                robot.isGoingLeft(),
+//                robot.isGoingRight()));
 
         // EXAMPLE: This function gets executed once every second, and ensures that
         // the robot starts moving forward if it is not already on the target
@@ -53,7 +53,8 @@ public class Robot implements WebSocketListener {
 
     @Override
     public void initialStatusFired(Status initial) {
-        robot.forward(Speed.FAST, Speed.FAST);
+        System.out.println("STARTED");
+//        robot.forward(Speed.FAST, Speed.FAST);
     }
 
     @Override
@@ -62,6 +63,7 @@ public class Robot implements WebSocketListener {
         Position newPosition = PositionHelper.currentPosition(newStatus);
 
         // EXAMPLE: make a decision based only upon the new position
+        System.out.println("new position: " + newPosition);
         switch (newPosition) {
         case TARGET:
             System.out.println("ON TARGET");
