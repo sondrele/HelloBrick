@@ -89,7 +89,7 @@ public class WebSocketThread implements Runnable {
     }
 
     private void sendColor() {
-        if (!robotState.simulation) {
+        if (!robotState.lastStatus.isSimulation()) {
             sendMessage(new Update(robotState.lastColor));
             lastHandledColor = robotState.lastColor;
         }

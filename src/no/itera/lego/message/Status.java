@@ -5,12 +5,14 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Status implements Message {
 
     public static final String TYPE = "status";
 
+    private final boolean simulate;
     /**
      * this is set to true when the server activates a match
      */
@@ -28,25 +30,25 @@ public class Status implements Message {
      */
     public final List<Color> colors;
 
-    public Status(boolean isActive, Color target, List<Color> colors) {
+    public Status(boolean simulate, boolean isActive, Color target, List<Color> colors) {
+        this.simulate = simulate;
         this.isActive = isActive;
         this.target = target;
         this.colors = colors;
     }
 
     public static Status createTestingStatus(boolean isActive, Color target, final Color currentColor){
-        List<Color> colors = new ArrayList<Color>() {
-            {
-                add(currentColor);
-                add(Color.BLUE);
-                add(Color.WHITE);
-                add(Color.YELLOW);
-            }
-        };
-        return new Status(isActive, target, colors);
+        List<Color> colors = Arrays.asList(
+                currentColor,
+                Color.BLUE,
+                Color.WHITE,
+                Color.YELLOW);
+        return new Status(true, isActive, target, colors);
     }
 
     public static Status fromJson(JSONObject object) {
+        boolean simulate = (boolean) object.get("simulate");
+
         boolean isActive = (boolean) object.get("isActive");
 
         Color target = Color.valueOf((String) object.get("target"));
@@ -57,7 +59,11 @@ public class Status implements Message {
         for (Object objColor : jsonColorsArray) {
             colors.add(Color.valueOf((String) objColor));
         }
-        return new Status(isActive, target, colors);
+        return new Status(simulate, isActive, target, colors);
+    }
+
+    public boolean isSimulation() {
+        return simulate;
     }
 
     public String toJson() {
@@ -68,6 +74,7 @@ public class Status implements Message {
     public String toString() {
         return String.format("%s{%s, %s, %s}",
                 getClass().getSimpleName(),
+                simulate,
                 isActive,
                 target,
                 colors);

@@ -14,15 +14,10 @@ public class RobotState {
      *      Enter the server address that the robot should connect to
      * name:
      *      The name of your robot
-     * simulation:
-     *      false - Set it to false when you are playing the real game
-     *      true - when you're testing your robot you can control it
-     *      through the simulation panel available from the server
      */
-    public static final String HOST = "192.168.43.168";
+    public static final String HOST = "192.168.43.254";
     public static final int PORT = 3004;
-    public final String name = "YOUR ROBOT NAME";
-    public boolean simulation = true;
+    public final String name = "194"; //169
 
     /**
      * READ ONLY
