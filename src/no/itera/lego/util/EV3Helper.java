@@ -34,12 +34,12 @@ public class EV3Helper implements RobotController {
      * Robot is ready for operation after completion.
      */
     public EV3Helper() {
-        motorRight = new EV3LargeRegulatedMotor(MotorPort.A);
-        motorLeft = new EV3LargeRegulatedMotor(MotorPort.D);
-
-        // Sets default motor speed for driving motors
-        motorRight.setSpeed(DEFAULT_MOTOR_SPEED);
-        motorLeft.setSpeed(DEFAULT_MOTOR_SPEED);
+//        motorRight = new EV3LargeRegulatedMotor(MotorPort.A);
+//        motorLeft = new EV3LargeRegulatedMotor(MotorPort.D);
+//
+//        // Sets default motor speed for driving motors
+//        motorRight.setSpeed(DEFAULT_MOTOR_SPEED);
+//        motorLeft.setSpeed(DEFAULT_MOTOR_SPEED);
     }
 
     @Override

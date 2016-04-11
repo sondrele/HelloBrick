@@ -38,15 +38,15 @@ public class Robot implements WebSocketListener {
 
         // EXAMPLE: This function gets executed once every second, and ensures that
         // the robot starts moving forward if it is not already on the target
-        Position position = PositionHelper.currentPosition(state.lastStatus);
-        if (position != Position.TARGET && !robotIsMoving()) {
-            robot.forward();
-        }
-
-        // EXAMPLE: turn around if there's someone very close ahead of you
-        if (state.lastDistance < 12) {
-            backupAndTurnAround();
-        }
+//        Position position = PositionHelper.currentPosition(state.lastStatus);
+//        if (position != Position.TARGET && !robotIsMoving()) {
+//            robot.forward();
+//        }
+//
+//        // EXAMPLE: turn around if there's someone very close ahead of you
+//        if (state.lastDistance < 12) {
+//            backupAndTurnAround();
+//        }
 
         blockExecutionFor(LOOP_SLEEP_TIME);
     }
@@ -64,10 +64,12 @@ public class Robot implements WebSocketListener {
         // EXAMPLE: make a decision based only upon the new position
         switch (newPosition) {
         case TARGET:
-            robot.stop();
+            System.out.println("ON TARGET");
+            robot.playBeep();
             return;
         case OUT_OF_MAP:
-            backupAndTurnAround();
+            System.out.println("OUT OF MAP");
+            robot.playBeep();
             return;
         }
 
@@ -75,11 +77,11 @@ public class Robot implements WebSocketListener {
         // having been in the lower left corner _and_ it is moving forward (i.e. not
         // backing up), we make an educated guess at going left, because the TARGET
         // is probably going to be in that direction.
-        if (oldPosition == Position.LOWER_RIGHT &&
-                newPosition == Position.UPPER_RIGHT &&
-                robot.isGoingForward()) {
-            robot.forward(Speed.SLOW, Speed.FASTEST);
-        }
+//        if (oldPosition == Position.LOWER_RIGHT &&
+//                newPosition == Position.UPPER_RIGHT &&
+//                robot.isGoingForward()) {
+//            robot.forward(Speed.SLOW, Speed.FASTEST);
+//        }
     }
 
     private void backupAndTurnAround() {

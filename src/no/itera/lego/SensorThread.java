@@ -10,21 +10,21 @@ import no.itera.lego.util.DistanceSensor;
 public class SensorThread implements Runnable {
 
     private final ColorSensor colorSensor;
-    private final DistanceSensor distanceSensor;
+//    private final DistanceSensor distanceSensor;
     private RobotState robotState;
 
     public SensorThread(RobotState robotState) {
         this.robotState = robotState;
 
         colorSensor = new ColorSensor(SensorPort.S4);
-        distanceSensor = new DistanceSensor(SensorPort.S1);
+//        distanceSensor = new DistanceSensor(SensorPort.S1);
     }
 
     @Override
     public void run() {
         while (robotState.shouldRun) {
             readColor();
-            robotState.lastDistance = distanceSensor.readDistance();
+//            robotState.lastDistance = distanceSensor.readDistance();
         }
         robotState.latch.countDown();
     }
