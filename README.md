@@ -45,9 +45,8 @@ understanding of how it works to control the robots.
 Remember to configure the following properties correctly:
 
 1. [RobotState.java][robotstate]
-  * `HOST` and `PORT` - address to the server
+  * `HOST` - the address to the server
   * `name` - set the name of your robot
-  * `simulation` - set this to false before starting a real match, set to true if you want to test robot using simulations in web interface (colors read from color sensor gets ignored)
 2. [build.properties][build-properties]
   * `device.host` - enter the IP address of your robot here. After you have connected both your robot and your machine to
     the network, you'll be able to upload your code to the robot by running the `ant upload`.
@@ -76,7 +75,7 @@ The handout computers are already pre-configured with `ant`.
 
 ### Killing a stalled process with ant
 
-Sometimes you migth encounter a crashed app that locks your brick. In stead of rebooting your brick you may use the
+Sometimes you might encounter a crashed app that locks your brick. In stead of rebooting your brick you may use the
 ```ant stop``` command.
 
 ## Color Sensor calibration
