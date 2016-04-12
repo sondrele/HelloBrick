@@ -5,6 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Status implements Message {
@@ -37,14 +38,11 @@ public class Status implements Message {
     }
 
     public static Status createTestingStatus(boolean isActive, Color target, final Color currentColor){
-        List<Color> colors = new ArrayList<Color>() {
-            {
-                add(currentColor);
-                add(Color.BLUE);
-                add(Color.WHITE);
-                add(Color.YELLOW);
-            }
-        };
+        List<Color> colors = Arrays.asList(
+                currentColor,
+                Color.BLUE,
+                Color.WHITE,
+                Color.YELLOW);
         return new Status(true, isActive, target, colors);
     }
 
