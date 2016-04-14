@@ -41,7 +41,7 @@ public class MightyMain {
         System.out.println("\nTesting: \nLeft = RED target. \nRight = GREEN");
 
         while (robotState.shouldRun) {
-            if (robotState.lastStatus.isActive) { //If server hasn't started game, give user option to start game manually
+            if (!robotState.lastStatus.isActive) { //If server hasn't started game, give user option to start game manually
                 checkUserOverride(webSocketThread);
             }
             if (Button.ENTER.isDown()) {
