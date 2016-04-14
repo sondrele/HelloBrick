@@ -71,6 +71,7 @@ public class RobotState {
     public RobotState(RobotController robotController) {
         this.robotController = robotController;
         shouldRun = true;
+        lastStatus = Status.createTestingStatus(false, Color.RED, Color.WHITE);
     }
 
     @Override
