@@ -43,7 +43,7 @@ public class Status implements Message {
                 Color.BLUE,
                 Color.WHITE,
                 Color.YELLOW);
-        return new Status(true, isActive, target, colors);
+        return new Status(false, isActive, target, colors);
     }
 
     public static Status fromJson(JSONObject object) {
