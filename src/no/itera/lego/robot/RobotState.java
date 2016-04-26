@@ -10,20 +10,14 @@ public class RobotState {
     /**
      * SET THE FOLLOWING VALUES
      *
-     * HOST and PORT:
-     *      Enter the server address that the robot should connect to
+     * HOST:
+     *      Enter the server ip address that the robot should connect to
      * name:
      *      The name of your robot
      */
     public static final String HOST = "192.168.43.254";
-    public static final int PORT = 3004;
     public final String name = "YOUR ROBOT NAME";
 
-    /**
-     * READ ONLY
-     * The server will set this to true when your round starts
-     */
-    public boolean shouldRun;
     /**
      * READ ONLY
      * This is the last status of the game received from the server,
@@ -62,6 +56,12 @@ public class RobotState {
      * driving in the specified direction until you tell it to do something else
      */
     public final RobotController robotController;
+
+    /**
+     * READ ONLY
+     * This flag is used in the while loops. It should not be modified
+     */
+    public boolean shouldRun;
 
     // you don't need to worry about these fields
     public CountDownLatch latch;

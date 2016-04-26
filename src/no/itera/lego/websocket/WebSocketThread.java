@@ -11,6 +11,8 @@ import no.itera.lego.util.StatusHistory;
 
 public class WebSocketThread implements Runnable {
 
+    private static final int PORT = 3004;
+
     private RobotState robotState;
     private StatusHistory statusHistory;
     private BrickSocket socket;
@@ -72,7 +74,7 @@ public class WebSocketThread implements Runnable {
     }
 
     private void connectToSocket() {
-        String url = String.format("ws://%s:%s", RobotState.HOST, RobotState.PORT);
+        String url = String.format("ws://%s:%s", RobotState.HOST, PORT);
         System.out.println("Connecting to: " + url);
 
         socket = new BrickSocket(url, robotState, this);
