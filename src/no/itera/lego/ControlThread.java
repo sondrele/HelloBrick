@@ -17,6 +17,8 @@ public class ControlThread implements Runnable {
     public void run() {
         while (robotState.shouldRun) {
             if (theGameIsNotActive()) {
+                // make sure that the robot is not running
+                robotState.robotController.stop();
                 continue;
             } else {
                 robot.loop();
