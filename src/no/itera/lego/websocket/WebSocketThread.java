@@ -81,7 +81,7 @@ public class WebSocketThread implements Runnable {
         while (!robotState.webSocketOpen) {
         }
 
-        System.out.println("Connected");
+        System.out.println("Connected: Your robot is now ready to start a game!");
 
         Register register = new Register(robotState.name);
         sendMessage(register);
