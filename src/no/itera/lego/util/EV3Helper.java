@@ -132,6 +132,11 @@ public class EV3Helper implements RobotController {
     }
 
     @Override
+    public boolean isMoving() {
+        return getMotorLeft().getRotationSpeed() != 0 || getMotorRight().getRotationSpeed() != 0;
+    }
+
+    @Override
     public boolean isGoingBackward() {
         return getMotorLeft().getRotationSpeed() < 0 && getMotorRight().getRotationSpeed() < 0;
     }

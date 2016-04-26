@@ -43,6 +43,8 @@ public interface RobotController {
     void rotateLeft();
     void rotateRight();
 
+    boolean isMoving();
+
     /**
      * These four functions can be used to determine what direction the
      * robot is moving.
