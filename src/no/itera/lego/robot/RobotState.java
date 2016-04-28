@@ -15,8 +15,8 @@ public class RobotState {
      * name:
      *      The name of your robot
      */
-    public static final String HOST = "192.168.43.254";
-    public final String name = "YOUR ROBOT NAME";
+    public static final String HOST = null;  // e.g. "192.168.43.254";
+    public final String name = null;         // e.g. "YOUR ROBOT NAME";
 
     /**
      * READ ONLY
@@ -69,6 +69,9 @@ public class RobotState {
     public boolean webSocketConnecting;
 
     public RobotState(RobotController robotController) {
+        if (HOST == null || name == null) {
+            throw new RuntimeException("Please specify the server IP address and your robot's name!");
+        }
         this.robotController = robotController;
         shouldRun = true;
         lastStatus = Status.createTestingStatus(false, Color.RED, Color.WHITE);
