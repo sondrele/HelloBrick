@@ -43,4 +43,12 @@ public final class PositionHelper {
         }
     }
 
+    public static boolean enemyIsOnTarget(Status status) {
+        Color enemyTarget = status.target == Color.RED ?
+                Color.GREEN : Color.RED;
+        Color enemy1 = status.colors.get(2);
+        Color enemy2 = status.colors.get(3);
+        return enemy1 == enemyTarget || enemy2 == enemyTarget;
+    }
+
 }
